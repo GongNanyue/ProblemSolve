@@ -1,8 +1,8 @@
 ## 线段树模板题
 
-```
-线段树 
-```
+
+线段树 https://github.com/GongNanyue/ProblemSolve/tree/main/%E9%A2%98%E7%9B%AE/2023/5
+
 
 
 
