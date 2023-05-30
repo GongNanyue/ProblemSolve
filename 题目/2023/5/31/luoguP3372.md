@@ -1,9 +1,8 @@
 ## 线段树模板题
 
 
-线段树 https://github.com/GongNanyue/ProblemSolve/tree/main/%E9%A2%98%E7%9B%AE/2023/5
-
-
+线段树
+https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91.md
 
 
 P3372 【模板】线段树 1
