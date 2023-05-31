@@ -76,3 +76,69 @@ int main() {
 }
 
 ```
+
+
+
+tarjan算法
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 5e5 + 10, M = 5e5 + 10;
+int n, m, s;
+vector<int> e[N];  //edge[本节点] ={对节点...} 
+vector<pair<int, int>> query[N];
+// 查询对面的节点  查询编号   query[查询本节点]
+int leader[N], vis[N], ans[M];
+
+int find(int x) {
+    return leader[x] == x ? x : (leader[x] = find(leader[x]));
+} // 并查集查找leader
+
+void tarjan(int u) {
+    vis[u] = 1;
+    for (auto v: e[u]) {
+        if (!vis[v]) {
+            tarjan(v);
+            leader[v] = u;
+            //连上并查集
+        }
+    }
+    for (auto q: query[u]) {
+        int v = q.first, i = q.second;
+        if (vis[v]) ans[i] = find(v);
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    cin >> n >> m >> s;
+    for (int i = 1; i <= n; ++i)
+        leader[i] = i;
+
+    for (int i = 0; i < n - 1; ++i) {
+        int x, y;
+        cin >> x >> y;
+        if (x != y) {
+            e[x].emplace_back(y);
+            e[y].emplace_back(x);
+        }
+    }
+
+    for (int i = 0; i < m; ++i) {
+        int a, b;
+        cin >> a >> b;
+        query[a].emplace_back(b, i);
+        query[b].emplace_back(a, i);
+    }
+    tarjan(s);
+    for (int i = 0; i < m; ++i)
+        cout << ans[i] << "\n";
+
+
+    return 0;
+}
+```
