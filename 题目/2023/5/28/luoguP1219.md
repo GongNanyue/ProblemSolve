@@ -1,10 +1,7 @@
-P1219 [USACO1.5]八皇后 Checker Challenge
+P1219 [USACO1.5]八皇后 Checker Challengehttps://www.luogu.com.cn/problem/P1219
 
-https://www.luogu.com.cn/problem/P1219
 
-Tag:
-
-深度优先搜索https://github.com/GongNanyue/ProblemSolve/tree/main/%E6%90%9C%E7%B4%A2/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2
+> [深度优先搜索](https://github.com/GongNanyue/ProblemSolve/tree/main/%E6%90%9C%E7%B4%A2/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2)
 
 
 
