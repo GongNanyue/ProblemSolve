@@ -1,5 +1,6 @@
 [P1629 邮递员送信](https://www.luogu.com.cn/problem/P1629)
-> 
+
+> [Floyed](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF/Floyed.md)
 
 ```cpp
 #include <bits/stdc++.h>
