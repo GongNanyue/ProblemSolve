@@ -2,6 +2,8 @@
 
 > [Dijkstra](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF/Dijkstra.md)
 
+注意最后输出的时候是INT_MAX 不是0x3f3f3f3f
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
