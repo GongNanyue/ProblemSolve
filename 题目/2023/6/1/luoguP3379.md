@@ -28,7 +28,7 @@ void dfs1(int u, int father) {//初始化fa, depth, sz, son
 
 void dfs2(int u, int hd/*链头*/) {//初始化 top
     top[u] = hd;
-    if (!son[u])return;
+    if (!son[u])return;//如果son[u] == 0 则说明没有子节点
     dfs2(son[u], hd);//重儿子连上重链
     for (auto v: e[u]) {//轻儿子开辟新的重链
         if (v == son[u] || v == fa[u])continue;
