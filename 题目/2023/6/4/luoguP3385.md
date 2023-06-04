@@ -1,6 +1,6 @@
 [P3385 【模板】负环](https://www.luogu.com.cn/problem/P3385)
 
-> spfa
+> [spfa](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF/spfa.md)
 
 ```cpp
 #include <bits/stdc++.h>
