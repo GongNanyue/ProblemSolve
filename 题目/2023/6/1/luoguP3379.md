@@ -1,4 +1,4 @@
-
+[P3379 【模板】最近公共祖先（LCA）](https://www.luogu.com.cn/problem/P3379)
 
 > [树链剖分](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.md)
 > [最近公共祖先](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88.md)
