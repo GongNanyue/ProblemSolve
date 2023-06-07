@@ -1,6 +1,6 @@
 [P1119 灾后重建](https://www.luogu.com.cn/problem/P1119)
 
-> Floyd
+> [Floyd](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF/Floyd.md)
 
 Floyd的本质是动态规划 最外层的第k的循环是表示经过 0...k的子图 从x到y的最短距离
 
