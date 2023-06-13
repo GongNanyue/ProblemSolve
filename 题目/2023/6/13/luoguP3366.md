@@ -1,5 +1,7 @@
 [P3366 【模板】最小生成树](https://www.luogu.com.cn/problem/P3366)
 
+> kruskal
+
 ```cpp
 
 #include <bits/stdc++.h>
