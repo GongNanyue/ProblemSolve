@@ -3,7 +3,7 @@
 
 [P2910 [USACO08OPEN]Clear And Present Danger S](https://www.luogu.com.cn/problem/P2910)
 
-> Floyd
+> [Floyd](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF/Floyd.md)
 
 ```cpp
 #include <bits/stdc++.h>
