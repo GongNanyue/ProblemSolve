@@ -36,6 +36,7 @@ int main() {
             for (int v = u + 1; v < k; ++v)
                 res = std::min(res, (long long) dist[u][v] + Mtr[v][k] + Mtr[k][u]);
                 //如果两个0x3f3f3f3f相加再加上一个常数就有可能溢出
+                //或者inf 设为 0x2a2a2a2a
 
         for (int u = 1; u <= n; ++u)
             for (int v = 1; v <= n; ++v)
