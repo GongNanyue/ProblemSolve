@@ -1,5 +1,7 @@
 [P1692 部落卫队](https://www.luogu.com.cn/problem/P1692)
 
+> [深度优先搜索](https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%90%9C%E7%B4%A2/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.md)
+
  ```cpp
  #include <bits/stdc++.h>
 using std::cin;
