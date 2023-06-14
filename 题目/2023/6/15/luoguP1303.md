@@ -1,6 +1,6 @@
 [P1303 A*B Problem](https://www.luogu.com.cn/problem/P1303)
 
->  高精度
+>  [高精度](https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6.md)
 
 ```cpp
 #include <bits/stdc++.h>
