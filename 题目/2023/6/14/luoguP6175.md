@@ -1,6 +1,7 @@
 [P6175 无向图的最小环问题](https://www.luogu.com.cn/problem/P6175)
 
 > [Floyd](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF/Floyd.md)
+> [最小环](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%8E%AF.md)
 
 假设路径经过 u ---- v -----u 
 而且要去和回的时候路径不同 不如设u ---- v 的时候是只经过 1 ~ k-1个点，v ---- u 的时候经过第k个点
