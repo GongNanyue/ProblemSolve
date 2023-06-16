@@ -1,6 +1,6 @@
 [P1247 取火柴游戏](https://www.luogu.com.cn/problem/P1247)
 
-> https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%95%B0%E5%AD%A6/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E5%85%AC%E5%B9%B3%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/Nim%E6%B8%B8%E6%88%8F.md
+> [Nim游戏](https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%95%B0%E5%AD%A6/%E5%8D%9A%E5%BC%88%E8%AE%BA/%E5%85%AC%E5%B9%B3%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8F/Nim%E6%B8%B8%E6%88%8F.md) 
 
 ```cpp
 #include <bits/stdc++.h>
