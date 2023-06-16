@@ -1,5 +1,7 @@
 [P1892 [BOI2003]团伙](https://www.luogu.com.cn/problem/P1892)
 
+> [并查集](https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
+
 ```cpp
 #include <bits/stdc++.h>
 
