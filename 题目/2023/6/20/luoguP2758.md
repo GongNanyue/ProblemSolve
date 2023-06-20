@@ -1,5 +1,6 @@
 https://www.luogu.com.cn/problem/P2758
 
+> [线性dp](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7dp.md)
 
 ```cpp
 #include <bits/stdc++.h>
