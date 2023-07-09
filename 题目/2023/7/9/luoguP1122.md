@@ -1,6 +1,6 @@
 [P1122 最大子树和](https://www.luogu.com.cn/problem/P1122)https://www.luogu.com.cn/problem/P1122
 
-> [树形dp](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%A0%91%E5%BD%A2dp.md)https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%A0%91%E5%BD%A2dp.md
+> [树形dp](https://github.com/GongNanyue/ProblemSolve/blob/main/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%A0%91%E5%BD%A2dp.md)
 
 ```cpp
 #include <bits/stdc++.h>
