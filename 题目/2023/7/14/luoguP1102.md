@@ -1,6 +1,6 @@
 [P1102 A-B 数对](https://www.luogu.com.cn/problem/P1102)
 
-> 双指针
+> [双指针](https://github.com/GongNanyue/ProblemSolve/tree/main/%E6%9D%82%E9%A1%B9)
 
 ```cpp
 #include <bits/stdc++.h>
