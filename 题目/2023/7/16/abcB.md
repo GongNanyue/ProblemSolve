@@ -1,6 +1,6 @@
 [B - Strictly Superior](https://atcoder.jp/contests/abc310/tasks/abc310_b)
 
-> 模拟
+> [stl](https://github.com/GongNanyue/ProblemSolve/blob/main/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/C%2B%2B%20%E6%A0%87%E5%87%86%E5%BA%93/STL%20%E7%AE%97%E6%B3%95.md)
 
 ```cpp
 #include <bits/stdc++.h>
