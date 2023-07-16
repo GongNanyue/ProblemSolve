@@ -37,3 +37,5 @@ int main() {
 }
 
 ```
+
+![image-20230716180358027](luoguT4231.assets/image-20230716180358027.png)
