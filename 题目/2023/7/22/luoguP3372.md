@@ -18,7 +18,7 @@ void push_up(int p) {
     tr[p] = tr[ls(p)] + tr[rs(p)];
 }
 
-void add_interval(int p, int l, int r, int k) {
+void add_p(int p, int l, int r, int k) {
     // 在p管辖[l,r]中每个数加上x
     tr[p] += (ll)1 * (r - l + 1) * k;
     tag[p] += k;
@@ -27,7 +27,7 @@ void add_interval(int p, int l, int r, int k) {
 void push_down(int p, int l, int r) {
     if (tag[p] == 0) return;
     int mid = (l + r) / 2;
-    add_interval(ls(p), l, mid, tag[p]), add_interval(rs(p), mid + 1, r, tag[p]);
+    add_p(ls(p), l, mid, tag[p]), add_p(rs(p), mid + 1, r, tag[p]);
     tag[p] = 0;
 }
 
@@ -64,12 +64,13 @@ void add_point(int p, int l, int r, int x, int k) {// p节点管辖[l,r]
 void add_interval(int p, int l, int r, int L, int R, int k) {
     // p管辖区间[l,r] 在区间[L,R]中每个数加上k
     if (r < L || l > R) return;
-    if (L <= l && r <= R) return add_interval(p, l, r, k);
+    if (L <= l && r <= R) return add_p(p, l, r, k);
     int mid = (l + r) / 2;
     push_down(p, l, r);
     add_interval(ls(p), l, mid, L, R, k), add_interval(rs(p), mid + 1, r, L, R, k);
     push_up(p);
 }
+
 
 
 int main() {
@@ -95,4 +96,5 @@ int main() {
 
     return 0;
 }
+
 ```
