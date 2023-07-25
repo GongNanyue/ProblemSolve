@@ -2,6 +2,13 @@
 
 > [st表](https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ST%E8%A1%A8.md)
 
+st[p][l] 表示以l为左端点,2^p为长度的区间 即是[l,l + 2^p - 1]
+
+st[p][l] = std::max(st[p-1][l],st[p-1][l + 2 ^ (p-1)]
+
+查询[l,r] 可以取不超过r - l + 1 的区间长度的2的幂次方进行查询
+
+max([l,r]) = std:max(st[log2(r-l+1)][l],st[log2(r-l+1)][r-2^(log2(r-l+1)+1]
 
 ```cpp
 #include <bits/stdc++.h>
