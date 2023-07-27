@@ -52,6 +52,8 @@ int main(){
     std::cin >> a >> b;
     std::string p,q;
     while(std::cin >> p >> q){
+        // 这里不能用map
+        // 如果有key相同但是value不相同会覆盖
         mp.push_back({p,q});
     }
 
