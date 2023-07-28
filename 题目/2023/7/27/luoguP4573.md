@@ -1,6 +1,6 @@
 [P4573 [CQOI2013] 新数独](https://www.luogu.com.cn/problem/P4573)
 
-> [dfs](https://github.com/GongNanyue/ProblemSolve/blob/main/%E6%90%9C%E7%B4%A2/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.md)
+> [dfs](https://github.com/GongNanyue/ProblemSolve/blob/main/搜索/广度优先搜索.md)
 
 ```cpp
 #include <bits/stdc++.h>
