@@ -1,7 +1,7 @@
 [P1120 小木棍](https://www.luogu.com.cn/problem/P1120)
 
 > dfs
->剪枝
+> 剪枝
 
 ```cpp
 #include <bits/stdc++.h>
