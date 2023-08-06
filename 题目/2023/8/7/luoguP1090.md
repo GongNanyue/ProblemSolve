@@ -1,8 +1,8 @@
 [P1090 [NOIP2004 提高组] 合并果子 / [USACO06NOV] Fence Repair G](https://www.luogu.com.cn/problem/P1090)
 
 
-> 优先队列
-
+> 堆
+> 贪心
 
 
 ```cpp
