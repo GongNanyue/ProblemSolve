@@ -20,13 +20,33 @@ $$
 
 
 
+```cpp
+#include <bits/stdc++.h>
+using ll = long long;
+using ull = unsigned long long;
+template<typename T>
+using Vec = std::vector<T>;
 
 
+int main() {
+    ll n, w, mod = 1e9 + 7;
+    std::cin >> n >> w;
+    Vec<ll> a(n + 1);
+    for (ll i = 1; i <= n; ++i) std::cin >> a[i];
+    Vec<Vec<ll>> f(n + 1, Vec<ll>(w + 1));
 
+    f[0][0] = 1;
+    for (ll i = 1; i <= n; ++i)
+        for (ll j = 0; j <= w; ++j) {
+            for (ll k = 0; k * a[i] <= j; ++k)
+                f[i][j] += f[i - 1][j - k * a[i]];
+            f[i][j] %= mod;
+        }
 
-
-
-
+    std::cout << f[n][w] << "\n";
+    return 0;
+}
+```
 
 ```cpp
 #include <bits/stdc++.h>
@@ -34,29 +54,26 @@ using ll = long long;
 using ull = unsigned long long;
 template<typename T>
 using Vec = std::vector<T>;
-template<typename T>
-using Vec2 = Vec<Vec<T>>;
-constexpr int INF = 0x3f3f3f3f;
-constexpr ll INFLL = 0x3f3f3f3f3f3f3f3f;
 
-ll mod = 1e9+7;
+
 int main() {
-    ll n, w;
+    ll n, w, mod = 1e9 + 7;
     std::cin >> n >> w;
-    Vec<ll> a(n);
-    Vec<Vec<ll>> f(n, Vec<ll>(w + 1));
-    for (ll i = 0; i < n; ++i) std::cin >> a[i];
+    Vec<ll> a(n + 1);
+    for (ll i = 1; i <= n; ++i) std::cin >> a[i];
+    Vec<Vec<ll>> f(n + 1, Vec<ll>(w + 1));
 
     f[0][0] = 1;
-    for (ll i = 0; i < n; ++i)
+    for (ll i = 1; i <= n; ++i)
         for (ll j = 0; j <= w; ++j) {
-            if(i - 1 >= 0) f[i][j] += f[i-1][j];
-            if(j - a[i] >= 0) f[i][j] += f[i][j - a[i]];
+            f[i][j] = f[i - 1][j];
+            if (j - a[i] >= 0)f[i][j] += f[i][j - a[i]];
+
+
             f[i][j] %= mod;
         }
-    std::cout << f[n-1][w] << "\n";
 
-
+    std::cout << f[n][w] << "\n";
     return 0;
 }
 ```
