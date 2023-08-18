@@ -1,4 +1,4 @@
-P2834 纸币问题 3
+[P2834 纸币问题 3](https://www.luogu.com.cn/problem/P2834)
 
 > 背包dp
 
