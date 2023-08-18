@@ -8,6 +8,26 @@
 
 
 
+设$f[i,j]$是选前i的物品，恰好装满j的体积
+
+
+$$
+f[i,j] \newline
+= sum(f[i-1][j],f[i-1][j-a[i]],f[i-1][j-2*a[i]].....) \newline
+= sum(f[i-1][j],f[i][j-a[i]])
+$$
+
+
+
+
+
+
+
+
+
+
+
+
 ```cpp
 #include <bits/stdc++.h>
 using ll = long long;
