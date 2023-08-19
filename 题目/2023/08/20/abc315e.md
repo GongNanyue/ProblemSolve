@@ -30,7 +30,6 @@ void dfs() {
     }
 }
 
-
 void topology() {
     queue<int> q;
     for (int i = 1; i <= n; ++i) {
@@ -53,8 +52,6 @@ void topology() {
             }
         }
     }
-
-
 }
 
 int main() {
@@ -74,6 +71,43 @@ int main() {
     }
     dfs();
     topology();
+    for (int i = 0; i < path.size() - 1; ++i)
+        cout << path[i] << " ";
+    return 0;
+}
+```
+
+建反图进行dfs
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> rdj;
+vector<bool> vis;
+vector<int> path;
+int n;
+
+void dfs(int u) {
+    vis[u] = true;
+    for (auto v: rdj[u])
+        if (!vis[v])
+            dfs(v);
+    path.push_back(u);
+}
+int main() {
+    cin >> n;
+    vis.resize(n + 1);
+    rdj.resize(n + 1);
+    for (int i = 1; i <= n; ++i) {
+        int ine;
+        cin >> ine;
+        for (int j = 0; j < ine; ++j) {
+            int p;
+            cin >> p;
+            rdj[i].push_back(p);
+        }
+    }
+    dfs(1);
     for (int i = 0; i < path.size() - 1; ++i)
         cout << path[i] << " ";
 
