@@ -35,3 +35,37 @@ int main() {
 ```
 
 
+使用前缀和优化求和
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const int inf = 0x3f3f3f3f;
+const int N = 310l;
+int a[N], sm[N], n, dp[N][N];
+
+
+int main() {
+    cin >> n;
+    memset(dp,0x3f,sizeof dp);
+    for (int i = 1; i <= n; ++i) {
+        cin >> a[i];
+        sm[i] = sm[i - 1] + a[i];
+        dp[i][i] = 0;
+    }
+
+    for (int l = 2; l <= n; ++l) {
+        for (int i = 1; i + l - 1 <= n; ++i) {
+            int j = i + l - 1;
+            for (int k = i; k <= j - 1; ++k)
+                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k + 1][j] + sm[j] - sm[i - 1]);
+
+
+        }
+    }
+
+    cout << dp[1][n] << "\n";
+    return 0;
+}
+```
