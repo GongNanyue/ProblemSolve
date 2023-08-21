@@ -1,6 +1,6 @@
 [P1775 石子合并（弱化版）](https://www.luogu.com.cn/problem/P1775)
 
-> dp
+> 区间dp
 
 ```cpp
 #include <bits/stdc++.h>
