@@ -2,6 +2,7 @@
 
 > 区间dp
 
+断环成链 可以把环复制一份 然后在区间长度为n上找
 
 ```cpp
 #include <bits/stdc++.h>
