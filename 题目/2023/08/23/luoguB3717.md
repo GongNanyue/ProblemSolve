@@ -3,7 +3,7 @@
 
 > 乘法逆元
 
-$(x!)^{-1} \equiv ((x-1)!) ^ {-1}$
+$(x!)^{-1} \equiv ((x-1)!) ^ {-1} \times (x - 1)$
 
 ```cpp
 #include <bits/stdc++.h>
