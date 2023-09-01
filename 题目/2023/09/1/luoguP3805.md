@@ -11,10 +11,9 @@ char a[N], s[3 * N];
 int d[3 * N];
 
 int main() {
-    freopen("C:\\Users\\GongNanyue\\Desktop\\P3805_1.in", "r", stdin);
     scanf("%s", a + 1);
     int n = strlen(a + 1);
-    s[0] = '$';
+    s[0] = '$';// 开始字符串
     s[1] = '#';
     int k = 1;
     for (int i = 1; i <= n; ++i) {
