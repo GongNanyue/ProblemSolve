@@ -2,6 +2,8 @@
 
 > kmp
 
+https://zhuanlan.zhihu.com/p/527154301
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
