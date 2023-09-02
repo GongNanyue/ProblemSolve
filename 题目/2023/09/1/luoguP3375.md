@@ -7,42 +7,41 @@
 using namespace std;
 
 const int N = 1e6 + 10;
+char s[N], t[N];
+int sn, tn;
+int p[N];//π数组 t[1..i]中真前缀真后缀相同最长长度
 
-char txt[N], pat[N];
-int tn, pn;
-int pit[N], pip[N];
+void calPi() {
+//    p[0] = p[1] = 0;
+    for (int i = 2, j = 0; i <= tn; ++i) {
+        // j 表示相同真前后缀长度 0表示没有
+        while (j != 0 && t[j + 1] != t[i]) j = p[j];
+        if (t[j + 1] == t[i]) p[i] = ++j;
+//        else p[i] = 0;
+    }
+}
+
+void kmp() {
+    for (int i = 1, j = 0; i <= sn; ++i) {
+        while (j != 0 && t[j + 1] != s[i]) j = p[j];
+        if (t[j + 1] == s[i]) ++j;
+        if (j == tn) {
+            printf("%d\n", i - tn + 1);
+            j = p[j];
+        }
+    }
+}
 
 int main() {
-    scanf("%s", txt + 1);
-    scanf("%s", pat + 1);
-    tn = strlen(txt + 1);
-    pn = strlen(pat + 1);
-
-    pip[0] = pip[1] = 0;
-    for (int i = 2; i <= pn; ++i) {
-        int p = pip[i - 1];
-        while (p != 0) {
-            if (pat[p + 1] == pat[i]) break;
-            else p = pip[p];
-        }
-        if (pat[p + 1] == pat[i]) pip[i] = p + 1;
-        else pip[i] = 0;
-    }
-
-    for (int i = 1; i <= tn; ++i) {
-        int p = pit[i - 1];
-        while (p != 0) {
-            if (pat[p + 1] == txt[i]) break;
-            else p = pip[p];
-        }
-        if (pat[p + 1] == txt[i]) pit[i] = p + 1;
-        else pit[i] = 0;
-
-        if (pit[i] == pn) printf("%d\n", i - pn + 1);
-    }
-
-    for (int i = 1; i <= pn; ++i)
-        printf("%d ", pip[i]);
+    // 字符串下标从1开始
+    scanf("%s", s + 1);// s[1:sn] 文本串
+    scanf("%s", t + 1);// t[1:tn]  模式串
+    sn = strlen(s + 1);
+    tn = strlen(t + 1);
+    calPi();
+    kmp();
+    for (int i = 1; i <= tn; ++i)
+        printf("%d ", p[i]);
 
     return 0;
 }
