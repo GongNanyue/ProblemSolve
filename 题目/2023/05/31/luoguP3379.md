@@ -19,6 +19,7 @@ int dpt[N];// depth
 int fa[N][20]; // log2(N) = 18.93
 
 void dfs(int u, int p) {
+    // 预处理O(n log n)
     dpt[u] = dpt[p] + 1;
     fa[u][0] = p;
 
@@ -32,6 +33,7 @@ void dfs(int u, int p) {
 }
 
 int lca(int a, int b) {
+    // 查询O(log n)
     if (dpt[a] < dpt[b]) swap(a, b);
     // 假定a的深度更深
     for (int i = 19; i >= 0; --i)
@@ -72,7 +74,6 @@ int main() {
     }
     return 0;
 }
-
 ```
 
 
