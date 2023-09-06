@@ -11,65 +11,65 @@
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 5e5 + 10;
+
+const int N = 500000 + 10;
 int n, m, s;
-vector<int> adjlst[N];
-int depth[N], ancestor[N][20];//2 ^ 20 ~= 1e6
+vector<int> adj[N];
+int dpt[N];// depth
+int fa[N][20]; // log2(N) = 18.93
 
-void dfs(int u, int father) {
-    depth[u] = depth[father] + 1;
-    ancestor[u][0] = father;
+void dfs(int u, int p) {
+    dpt[u] = dpt[p] + 1;
+    fa[u][0] = p;
 
-    for (int i = 1; i <= 19; ++i)
-        ancestor[u][i] = ancestor[ancestor[u][i - 1]][i - 1];
+    for (int i = 1; i < 20; ++i)
+        fa[u][i] = fa[fa[u][i - 1]][i - 1];
+    // 上跳2^k次等于先上跳到2^(k-1)的节点再上跳到2^(k-1)次
 
-    for (int v: adjlst[u])
-        if (v != father)
+    for (auto v: adj[u])
+        if (v != p)
             dfs(v, u);
 }
 
-int lca(int u, int v) {
-    if (depth[u] < depth[v]) swap(u, v); // 确保u的深度更深
-
-    //先将u v跳到同一层
+int lca(int a, int b) {
+    if (dpt[a] < dpt[b]) swap(a, b);
+    // 假定a的深度更深
     for (int i = 19; i >= 0; --i)
-        if (depth[ancestor[u][i]] >= depth[v])
-            u = ancestor[u][i];
+        if (dpt[fa[a][i]] >= dpt[b])
+            a = fa[a][i];
+    // 如果上跳的祖先还是比b要深 那么上跳
+    if (a == b) return a;// 如果是同一个节点 那么特判返回
 
-    if (u == v)return u;//特判就已经到了最近公共祖先
-
-    //一起向上跳到最近公共祖先的下一层的位置
     for (int i = 19; i >= 0; --i)
-        if (ancestor[u][i] != ancestor[v][i]) {
-            u = ancestor[u][i];
-            v = ancestor[v][i];
+        if (fa[a][i] != fa[b][i]) {
+            a = fa[a][i];
+            b = fa[b][i];
         }
-    return ancestor[u][0];
+    // 如果上跳2^i次后的祖先相等 说明祖先在lca到根节点的路径上 那么跳多了
+    // 如果不相等 说明祖先不在路径上 可以上跳
+    // 时刻保障上跳到lca的下面
+    // 经过二进制拆分 那么最后两个节点恰好就是lca的儿子
+    return fa[a][0];
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
     cin >> n >> m >> s;
     for (int i = 0; i < n - 1; ++i) {
         int x, y;
         cin >> x >> y;
-        if (x != y) {
-            adjlst[x].emplace_back(y);
-            adjlst[y].emplace_back(x);
-        }
+        adj[x].push_back(y);
+        adj[y].push_back(x);
     }
 
-    dfs(s, 0);//0 作为哨兵节点 是根节点的祖宗节点
 
+    dfs(s, 0);
+    // 0 是哨兵节点 深度是0
+    // 可以让fa上跳过多fa[u][inf] = 0为哨兵节点
     while (m--) {
-        int a, b;
-        cin >> a >> b;
-        cout << lca(a, b) << "\n";
+        int x, y;
+        cin >> x >> y;
+        cout << lca(x, y) << "\n";
     }
-
-
     return 0;
 }
 
