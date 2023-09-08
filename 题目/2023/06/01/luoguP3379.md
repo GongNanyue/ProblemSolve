@@ -6,68 +6,63 @@
 
 ```cpp
 #include <bits/stdc++.h>
-using namespace std; //https://www.luogu.com.cn/problem/P3379
-const int N = 5e5 + 10, M = 5e5 + 10;
-int n, m, s;
-vector<int> e[N];
-int fa[N]/*father*/, depth[N], son[N], sz[N]/*size*/, top[N];
+using namespace std;
 
-//  父节点(根节点s的父节点设为0)    重儿子  子树节点数量   重链顶点(指向轻儿子)
-void dfs1(int u, int father) {//初始化fa, depth, sz, son
-    fa[u] = father;
-    depth[u] = depth[father] + 1;
+const int N = 500000 + 10;
+int n,m,s;
+vector<int> adj[N];
+int sz[N],fa[N],hsn[N],dpt[N],top[N];
+// sz 子树大小 
+// fa 父亲节点
+// hsn 重儿子
+// dpt 深度
+// top 重链的头结点
+void dfs1(int u,int p){
     sz[u] = 1;
-    for (auto v: e[u]) {
-        if (v == father)continue;
-        dfs1(v, u);
+    fa[u] = p;
+    dpt[u] = dpt[p] + 1;
+    for(auto v : adj[u]) if(v != p){
+        dfs1(v,u);
         sz[u] += sz[v];
-        if (sz[v] > sz[son[u]])
-            son[u] = v;
+        if(sz[v] > sz[hsn[u]]) hsn[u] = v;
     }
 }
 
-void dfs2(int u, int hd/*链头*/) {//初始化 top
-    top[u] = hd;
-    if (!son[u])return;//如果son[u] == 0 则说明没有子节点
-    dfs2(son[u], hd);//重儿子连上重链
-    for (auto v: e[u]) {//轻儿子开辟新的重链
-        if (v == son[u] || v == fa[u])continue;
-        dfs2(v, v);
-    }
+void dfs2(int u,int tp){
+    // tp u的这条重链上的头结点
+    top[u] = tp;
+    if(hsn[u] == 0) return; // 叶子结点没有重儿子
+    dfs2(hsn[u],tp); // 先处理重链上所有节点
+
+    for(auto v : adj[u]) if(v != fa[u] && v != hsn[u])
+        dfs2(v,v);// 重新开辟新的重链
 }
 
-
-int lca(int u, int v) {
-    while (top[u] != top[v]) {
-        if (depth[top[u]] < depth[top[v]])swap(u, v);
-        u = fa[top[u]];
+int lca(int u,int v){
+    // 深度更深的往上跳
+    while(top[u] != top[v]){
+        if(dpt[top[u]] > dpt[top[v]]) u = fa[top[u]]; // 头结点深度深的跳到头结点的父亲节点
+        else v = fa[top[v]];
     }
-    return depth[u] < depth[v] ? u : v;
+    return dpt[u] < dpt[v] ? u : v; // 深度浅的是lca
 }
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
+int main(){
     cin >> n >> m >> s;
-    for (int i = 0; i < n - 1; ++i) {
-        int x, y;
+    for(int i = 0;i < n - 1;++i){
+        int x,y;
         cin >> x >> y;
-        if (x != y) {
-            e[x].push_back(y);
-            e[y].push_back(x);
-        }
+        adj[x].push_back(y);
+        adj[y].push_back(x);
     }
 
-    dfs1(s, 0);
-    dfs2(s, s);
+    dfs1(s,s);
+    dfs2(s,s);
 
-    for (int i = 0; i < m; ++i) {
-        int x, y;
-        cin >> x >> y;
-        cout << lca(x, y) << "\n";
+    while(m--){
+        int u,v;
+        cin >> u >> v;
+        cout << lca(u,v) << "\n";
     }
     return 0;
 }
-
 ```
