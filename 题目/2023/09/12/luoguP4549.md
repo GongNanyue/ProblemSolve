@@ -10,7 +10,7 @@ a_1 x_1 + a_2 x_2 + \ldots + a_n x_n = \gcd(a_1, a_2, \ldots, a_n) = d
 $$
 
 那么d是 $a_1 x_1 + a_2 x_2 + \ldots + a_n x_n$ 中的最小正整数
-其他的数字都可以表示为 $ k d $ 
+其他的数字都是d的倍数
 
 ```cpp
 #include <bits/stdc++.h>
