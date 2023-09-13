@@ -1,6 +1,10 @@
+[P2044 [NOI2012] 随机数生成器](https://www.luogu.com.cn/problem/P2044)
 
+> 矩阵快速幂
 
-
+```math
+\begin{pmatrix}  a&1 \\  0&1\end{pmatrix}\begin{pmatrix} x_n\\ c\end{pmatrix}=\begin{pmatrix} a x_n + c\\ c\end{pmatrix}=\begin{pmatrix} x_{n + 1}\\ c\end{pmatrix}
+```
 
 ```cpp
 #include <bits/stdc++.h>
