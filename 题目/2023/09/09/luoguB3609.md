@@ -2,6 +2,8 @@
 
 > 强联通分量 Tarjan
 
+
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -118,5 +120,84 @@ int main() {
         cout << "\n";
     }
     return 0;
+}
+```
+
+由于图不一定联通 所以要尝试遍历所有dfn为0的点
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e4 + 10;
+
+int n, m;
+
+vector<int> adj[N];
+
+int dfn[N], low[N], dfc, st[N], tp, ins[N];
+int SCCs[N], c, sz[N];
+// dfn dfs序列
+// low 经过一条非树边到达的最低dfn
+// dfc dfs记录时间戳 1开始
+// st 栈
+// tp 栈顶 0为空
+// ins 在栈中
+// SCCs[u] 每个点u对应的scc编号
+// c scc的数量 1开始
+
+void tarjan(int u) {
+    dfn[u] = low[u] = ++dfc;
+    st[++tp] = u, ins[u] = 1;
+    for (auto v: adj[u])
+        if (dfn[v] == 0) {
+            tarjan(v);
+            low[u] = min(low[u], low[v]);
+        } else if (ins[v]) {
+            low[u] = min(low[u], dfn[v]);
+        }
+    if (dfn[u] == low[u]) {
+        ++c;
+        do {
+            SCCs[st[tp]] = c;
+            sz[c]++;
+            ins[st[tp]]--;
+        } while (st[tp--] != u);
+    }
+}
+
+void findSCC() {
+    for (int i = 1; i <= n; ++i) {
+        if (dfn[i] == 0) {
+            tarjan(i);
+        }
+    }
+}
+
+
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < m; ++i) {
+        int x, y;
+        cin >> x >> y;
+        adj[x].push_back(y);
+    }
+
+
+    findSCC();
+
+    cout << c << "\n";
+    unordered_set<int> vis;
+    for (int i = 1; i <= n; ++i) {
+        if (vis.count(i) == 0) {
+            for (int j = i; j <= n; ++j) {
+                if (SCCs[i] == SCCs[j]) {
+                    cout << j << " ";
+                    vis.insert(j);
+                }
+            }
+            cout << "\n";
+        }
+    }
 }
 ```
