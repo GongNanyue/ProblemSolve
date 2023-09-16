@@ -136,14 +136,14 @@ int n, m;
 vector<int> adj[N];
 
 int dfn[N], low[N], dfc, st[N], tp, ins[N];
-int SCCs[N], c, sz[N];
+int SCC[N], c, sz[N];
 // dfn dfs序列
 // low 经过一条非树边到达的最低dfn
 // dfc dfs记录时间戳 1开始
 // st 栈
 // tp 栈顶 0为空
 // ins 在栈中
-// SCCs[u] 每个点u对应的scc编号
+// SCC[u] 每个点u对应的scc编号
 // c scc的数量 1开始
 
 void tarjan(int u) {
@@ -159,7 +159,7 @@ void tarjan(int u) {
     if (dfn[u] == low[u]) {
         ++c;
         do {
-            SCCs[st[tp]] = c;
+            SCC[st[tp]] = c;
             sz[c]++;
             ins[st[tp]]--;
         } while (st[tp--] != u);
@@ -191,7 +191,7 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         if (vis.count(i) == 0) {
             for (int j = i; j <= n; ++j) {
-                if (SCCs[i] == SCCs[j]) {
+                if (SCC[i] == SCC[j]) {
                     cout << j << " ";
                     vis.insert(j);
                 }
