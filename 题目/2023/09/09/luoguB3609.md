@@ -3,6 +3,7 @@
 > 强联通分量 Tarjan
 
 
+边是单向边 只需要加一次就可以
 
 ```cpp
 #include <iostream>
