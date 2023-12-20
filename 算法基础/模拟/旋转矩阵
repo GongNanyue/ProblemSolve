@@ -1,0 +1,22 @@
+下标从0开始 把一个正方形矩阵顺时针旋转90度
+```cpp
+auto rotate(const vector<string> &M) {
+    int n = M.size();
+    vector<string> N(n, string(n, '.'));
+    for (int l = 0; l < n / 2; ++l) {
+        for (int y = l; y < n - l - 1; ++y) {
+            N[y][n - 1 - l] = M[l][y];
+        }
+        for (int x = l; x < n - l - 1; ++x) {
+            N[n - 1 - l][n - 1 - x] = M[x][n - 1 - l];
+        }
+        for (int y = n - 1 - l; y >= l; --y) {
+            N[n - 1 - y][l] = M[n - 1 - l][y];
+        }
+        for (int x = n - 1 - l; x >= l; --x) {
+            N[l][n - 1 - x] = M[x][l];
+        }
+    }
+    return N;
+}
+```
